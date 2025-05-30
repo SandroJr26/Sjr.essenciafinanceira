@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça os planos de consultoria financeira da Essência Financeira">
+    <title>Planos - Essência Financeira</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/logo.jpg" type="image/jpg">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Estilos específicos para a página de planos */
+        .pricing-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--espacamento-grande);
+            margin-top: var(--espacamento-grande);
+        }
+        
+        .pricing-card {
+            background-color: var(--branco-principal);
+            border-radius: var(--raio-borda);
+            padding: var(--espacamento-grande);
+            box-shadow: 0 5px 15px var(--sombra);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--verde-claro-2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--sombra);
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--dourado);
+        }
+        
+        .pricing-card.featured:before {
+            content: "Mais Popular";
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background-color: var(--dourado);
+            color: var(--verde-header);
+            padding: 5px 30px;
+            font-size: 0.8rem;
+            transform: rotate(45deg);
+            font-weight: bold;
+        }
+        
+        .pricing-header {
+            margin-bottom: var(--espacamento-grande);
+            padding-bottom: var(--espacamento-medio);
+            border-bottom: 1px solid var(--verde-claro-2);
+        }
+        
+        .pricing-name {
+            font-size: 1.5rem;
+            color: var(--verde-header);
+            margin-bottom: var(--espacamento-pequeno);
+        }
+        
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--texto-principal);
+            margin-bottom: var(--espacamento-pequeno);
+        }
+        
+        .pricing-price span {
+            font-size: 1rem;
+            color: var(--texto-secundario);
+        }
+        
+        .pricing-description {
+            color: var(--texto-secundario);
+            margin-bottom: var(--espacamento-medio);
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: var(--espacamento-grande);
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            margin-bottom: var(--espacamento-pequeno);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .pricing-features li:before {
+            content: "✓";
+            color: var(--verde-header);
+            position: absolute;
+            left: 0;
+        }
+        
+        .pricing-features li.included:before {
+            color: var(--verde-header);
+        }
+        
+        .pricing-features li.excluded {
+            color: var(--texto-secundario);
+            text-decoration: line-through;
+        }
+        
+        .pricing-features li.excluded:before {
+            content: "✕";
+            color: #ccc;
+        }
+        
+        .pricing-features li.highlight:before {
+            color: var(--dourado);
+        }
+        
+        .pricing-cta {
+            margin-top: var(--espacamento-grande);
+        }
+        
+        .pricing-card.featured .btn {
+            border-color: var(--dourado);
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: var(--espacamento-grande);
+            overflow-x: auto;
+            display: block;
+        }
+        
+        .comparison-table table {
+            width: 100%;
+            min-width: 600px;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--verde-claro-2);
+        }
+        
+        .comparison-table th {
+            background-color: var(--verde-claro-1);
+            color: var(--texto-principal);
+            font-weight: 600;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: var(--branco-secundario);
+        }
+        
+        .comparison-table td:first-child {
+            font-weight: 500;
+        }
+        
+        .check-icon {
+            color: var(--verde-header);
+        }
+        
+        .times-icon {
+            color: #ccc;
+        }
+        
+        .star-icon {
+            color: var(--dourado);
+        }
+        
+        @media (min-width: 768px) {
+            .pricing-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .pricing-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* Estilos para dark mode */
+        @media (prefers-color-scheme: dark) {
+            .pricing-card {
+                background-color: var(--dark-bg-secundario);
+            }
+            
+            .comparison-table th {
+                background-color: var(--dark-bg-terciario);
+            }
+            
+            .comparison-table tr:nth-child(even) {
+                background-color: var(--dark-bg-secundario);
+            }
+        }
+        
+        /* Classe para ativar dark mode via JavaScript */
+        body.dark-mode .pricing-card {
+            background-color: var(--dark-bg-secundario);
+        }
+        
+        body.dark-mode .comparison-table th {
+            background-color: var(--dark-bg-terciario);
+        }
+        
+        body.dark-mode .comparison-table tr:nth-child(even) {
+            background-color: var(--dark-bg-secundario);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-sticky">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../assets/images/logo.jpg" alt="Essência Financeira logo">
+                </a>
+            </div>
+            
+            <button class="hamburger" aria-label="Menu de navegação">☰</button>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="planos.html">Planos</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="depoimentos.html">Depoimentos</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hidden">Planos de Consultoria Financeira</h1>
+            <p class="hidden">Escolha o plano ideal para suas necessidades e comece sua jornada rumo à liberdade financeira.</p>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section>
+        <div class="container">
+            <div class="pricing-container">
+                <div class="pricing-card hidden">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Plano Inicial</h3>
+                        <div class="pricing-price">R$ 149<span>/mês</span></div>
+                        <p class="pricing-description">Ideal para quem está começando a organizar suas finanças</p>
+                    </div>
+                    
+                    <ul class="pricing-features">
+                        <li class="included">Análise financeira inicial</li>
+                        <li class="included">Planejamento de orçamento básico</li>
+                        <li class="included">Acesso à plataforma online</li>
+                        <li class="included">Suporte por e-mail</li>
+                        <li class="excluded">Consultoria personalizada</li>
+                        <li class="excluded">Planejamento de investimentos</li>
+                        <li class="excluded">Reuniões mensais</li>
+                    </ul>
+                    
+                    <div class="pricing-cta">
+                        <a href="contato.html" class="btn">Começar agora</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card featured hidden">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Plano Completo</h3>
+                        <div class="pricing-price">R$ 299<span>/mês</span></div>
+                        <p class="pricing-description">Para quem busca orientação completa e personalizada</p>
+                    </div>
+                    
+                    <ul class="pricing-features">
+                        <li class="included highlight">Análise financeira completa</li>
+                        <li class="included highlight">Planejamento de orçamento detalhado</li>
+                        <li class="included">Acesso à plataforma online</li>
+                        <li class="included">Suporte por e-mail e WhatsApp</li>
+                        <li class="included">2 sessões de consultoria mensal</li>
+                        <li class="included">Orientação sobre investimentos por profissional CPA-10</li>
+                        <li class="excluded">Reuniões semanais</li>
+                    </ul>
+                    
+                    <div class="pricing-cta">
+                        <a href="contato.html" class="btn btn-primary">Começar agora</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card hidden">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Plano Premium</h3>
+                        <div class="pricing-price">R$ 599<span>/mês</span></div>
+                        <p class="pricing-description">Solução completa para quem busca excelência financeira</p>
+                    </div>
+                    
+                    <ul class="pricing-features">
+                        <li class="included highlight">Análise financeira empresarial e pessoal</li>
+                        <li class="included highlight">Planejamento financeiro estratégico</li>
+                        <li class="included">Acesso à plataforma online</li>
+                        <li class="included">Suporte prioritário</li>
+                        <li class="included">4 sessões de consultoria mensal</li>
+                        <li class="included">Planejamento avançado de investimentos por profissional CPA-10</li>
+                        <li class="included">Reuniões semanais</li>
+                    </ul>
+                    
+                    <div class="pricing-cta">
+                        <a href="contato.html" class="btn">Começar agora</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="investment-disclaimer hidden">
+                <strong>Aviso importante:</strong> Informações sobre investimentos são fornecidas apenas por profissionais certificados CPA-10. Este conteúdo não constitui recomendação de investimento. Consulte sempre um profissional certificado antes de tomar decisões financeiras.
+            </div>
+            
+            <div class="comparison-table hidden">
+                <h2 class="section-title">Comparativo de Planos</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Recursos</th>
+                            <th>Plano Inicial</th>
+                            <th>Plano Completo</th>
+                            <th>Plano Premium</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Análise financeira</td>
+                            <td>Básica <i class="fas fa-check check-icon"></i></td>
+                            <td>Completa <i class="fas fa-check check-icon"></i></td>
+                            <td>Empresarial e Pessoal <i class="fas fa-star star-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Planejamento de orçamento</td>
+                            <td>Básico <i class="fas fa-check check-icon"></i></td>
+                            <td>Detalhado <i class="fas fa-check check-icon"></i></td>
+                            <td>Estratégico <i class="fas fa-star star-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Acesso à plataforma</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Suporte</td>
+                            <td>E-mail <i class="fas fa-check check-icon"></i></td>
+                            <td>E-mail e WhatsApp <i class="fas fa-check check-icon"></i></td>
+                            <td>Prioritário <i class="fas fa-star star-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Consultoria personalizada</td>
+                            <td><i class="fas fa-times times-icon"></i></td>
+                            <td>2 sessões/mês <i class="fas fa-check check-icon"></i></td>
+                            <td>4 sessões/mês <i class="fas fa-star star-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Orientação sobre investimentos*</td>
+                            <td><i class="fas fa-times times-icon"></i></td>
+                            <td>Básica <i class="fas fa-check check-icon"></i></td>
+                            <td>Avançada <i class="fas fa-star star-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Reuniões de acompanhamento</td>
+                            <td><i class="fas fa-times times-icon"></i></td>
+                            <td>Mensais <i class="fas fa-check check-icon"></i></td>
+                            <td>Semanais <i class="fas fa-star star-icon"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-center" style="margin-top: var(--espacamento-pequeno); font-size: 0.9rem; color: var(--texto-secundario);">
+                    * Orientações sobre investimentos são fornecidas exclusivamente por profissionais certificados CPA-10.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title hidden">Perguntas Frequentes</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item hidden">
+                    <h3>Posso mudar de plano depois?</h3>
+                    <p>Sim, você pode fazer upgrade ou downgrade do seu plano a qualquer momento. As alterações entrarão em vigor no próximo ciclo de cobrança.</p>
+                </div>
+                
+                <div class="faq-item hidden">
+                    <h3>Existe período mínimo de contratação?</h3>
+                    <p>Não exigimos período mínimo de contratação. Você pode cancelar seu plano a qualquer momento sem multas ou taxas adicionais.</p>
+                </div>
+                
+                <div class="faq-item hidden">
+                    <h3>Como funcionam as consultorias?</h3>
+                    <p>As consultorias são realizadas por videoconferência ou presencialmente em nosso escritório, dependendo da sua preferência e disponibilidade.</p>
+                </div>
+                
+                <div class="faq-item hidden">
+                    <h3>Quem fornece as orientações sobre investimentos?</h3>
+                    <p>Todas as orientações sobre investimentos são fornecidas exclusivamente por profissionais certificados CPA-10, conforme regulamentação vigente. Ressaltamos que nossas orientações não constituem recomendação de investimento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="hidden">Pronto para transformar sua vida financeira?</h2>
+            <p class="hidden">Escolha o plano ideal para suas necessidades e comece sua jornada rumo à liberdade financeira.</p>
+            <a href="contato.html" class="btn btn-primary hidden">Agendar Consulta Gratuita</a>
+        </div>
+    </section>
+    
+    <!-- Footer - Novo estilo com fundo preto e layout 1fr 1fr 1fr -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="../assets/images/logo.jpg" alt="Essência Financeira logo">
+                    <p>Transformando vidas através da educação financeira.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="planos.html">Planos</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                        <li><a href="depoimentos.html">Depoimentos</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000, São Paulo - SP</p>
+                    <p><i class="fas fa-phone"></i> (11) 9999-9999</p>
+                    <p><i class="fas fa-envelope"></i> contato@essenciafinanceira.com.br</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Essência Financeira. Todos os direitos reservados.</p>
+                <p>Informações sobre investimentos são fornecidas apenas por profissionais certificados CPA-10.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+</body>
+</html>

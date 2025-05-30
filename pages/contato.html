@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre em contato com a Essência Financeira para consultoria financeira personalizada">
+    <title>Contato - Essência Financeira</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/logo.jpg" type="image/jpg">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Estilos específicos para a página de contato */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--espacamento-grande);
+        }
+        
+        .contact-form {
+            background-color: var(--branco-principal);
+            border-radius: var(--raio-borda);
+            padding: var(--espacamento-grande);
+            box-shadow: 0 5px 15px var(--sombra);
+        }
+        
+        .contact-info {
+            background-color: var(--verde-claro-1);
+            border-radius: var(--raio-borda);
+            padding: var(--espacamento-grande);
+            box-shadow: 0 5px 15px var(--sombra);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--espacamento-grande);
+        }
+        
+        .contact-icon {
+            background-color: var(--branco-principal);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--espacamento-medio);
+            flex-shrink: 0;
+            box-shadow: 0 3px 10px var(--sombra);
+        }
+        
+        .contact-icon i {
+            color: var(--dourado);
+            font-size: 1.2rem;
+        }
+        
+        .contact-text h4 {
+            color: var(--texto-principal);
+            margin-bottom: var(--espacamento-pequeno);
+        }
+        
+        .contact-text p, .contact-text a {
+            color: var(--texto-secundario);
+            margin: 0;
+        }
+        
+        .contact-text a:hover {
+            color: var(--dourado);
+        }
+        
+        .contact-social {
+            display: flex;
+            gap: var(--espacamento-medio);
+            margin-top: var(--espacamento-grande);
+        }
+        
+        .contact-social a {
+            background-color: var(--branco-principal);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--verde-header);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px var(--sombra);
+        }
+        
+        .contact-social a:hover {
+            background-color: var(--verde-header);
+            color: var(--branco-principal);
+            transform: translateY(-3px);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--espacamento-medio);
+            margin-bottom: var(--espacamento-medio);
+        }
+        
+        .form-group {
+            margin-bottom: var(--espacamento-medio);
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: var(--espacamento-pequeno);
+            color: var(--texto-principal);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--verde-claro-2);
+            border-radius: var(--raio-borda);
+            background-color: var(--branco-principal);
+            color: var(--texto-principal);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--verde-header);
+            box-shadow: 0 0 5px rgba(46, 94, 71, 0.2);
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: var(--raio-borda);
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--sombra);
+            margin-top: var(--espacamento-grande);
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: var(--verde-claro-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--texto-secundario);
+            font-size: 1.2rem;
+        }
+        
+        .map-placeholder i {
+            margin-right: var(--espacamento-pequeno);
+            color: var(--dourado);
+        }
+        
+        .office-hours {
+            background-color: var(--branco-principal);
+            border-radius: var(--raio-borda);
+            padding: var(--espacamento-grande);
+            box-shadow: 0 5px 15px var(--sombra);
+            margin-top: var(--espacamento-grande);
+        }
+        
+        .office-hours h3 {
+            color: var(--texto-principal);
+            margin-bottom: var(--espacamento-medio);
+            display: flex;
+            align-items: center;
+        }
+        
+        .office-hours h3 i {
+            color: var(--dourado);
+            margin-right: var(--espacamento-pequeno);
+        }
+        
+        .hours-list {
+            list-style: none;
+        }
+        
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--espacamento-pequeno) 0;
+            border-bottom: 1px solid var(--verde-claro-1);
+        }
+        
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .day {
+            font-weight: 500;
+            color: var(--texto-principal);
+        }
+        
+        .time {
+            color: var(--texto-secundario);
+        }
+        
+        @media (min-width: 768px) {
+            .contact-container {
+                grid-template-columns: 2fr 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-sticky">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../assets/images/logo.jpg" alt="Essência Financeira logo">
+                </a>
+            </div>
+            
+            <button class="hamburger" aria-label="Menu de navegação">☰</button>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="planos.html">Planos</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="depoimentos.html">Depoimentos</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hidden">Entre em Contato</h1>
+            <p class="hidden">Estamos prontos para ajudar você a alcançar seus objetivos financeiros. Entre em contato conosco hoje mesmo.</p>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section>
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-form hidden">
+                    <h2>Envie sua mensagem</h2>
+                    <p>Preencha o formulário abaixo e entraremos em contato o mais breve possível.</p>
+                    
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nome completo</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Telefone</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Assunto</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Selecione um assunto</option>
+                                    <option value="consultoria">Consultoria Financeira</option>
+                                    <option value="planos">Informações sobre Planos</option>
+                                    <option value="parceria">Proposta de Parceria</option>
+                                    <option value="outro">Outro Assunto</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info hidden">
+                    <h2>Informações de Contato</h2>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Endereço</h4>
+                            <p>Av. Paulista, 1000, Sala 301<br>Bela Vista, São Paulo - SP<br>CEP: 01310-100</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Telefone</h4>
+                            <p><a href="tel:+551199999999">(11) 9999-9999</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>E-mail</h4>
+                            <p><a href="mailto:contato@essenciafinanceira.com.br">contato@essenciafinanceira.com.br</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Horário de Atendimento</h4>
+                            <p>Segunda a Sexta: 9h às 18h<br>Sábado: 9h às 13h</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-social">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-container hidden">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i> Mapa de localização da Essência Financeira
+                </div>
+            </div>
+            
+            <div class="office-hours hidden">
+                <h3><i class="fas fa-clock"></i> Horário de Funcionamento</h3>
+                <ul class="hours-list">
+                    <li>
+                        <span class="day">Segunda-feira</span>
+                        <span class="time">9:00 - 18:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Terça-feira</span>
+                        <span class="time">9:00 - 18:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Quarta-feira</span>
+                        <span class="time">9:00 - 18:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Quinta-feira</span>
+                        <span class="time">9:00 - 18:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Sexta-feira</span>
+                        <span class="time">9:00 - 18:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Sábado</span>
+                        <span class="time">9:00 - 13:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Domingo</span>
+                        <span class="time">Fechado</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="hidden">Agende uma consulta gratuita</h2>
+            <p class="hidden">Dê o primeiro passo rumo à sua liberdade financeira. Nossa equipe está pronta para ajudar.</p>
+            <a href="tel:+551199999999" class="btn btn-primary hidden">Ligar Agora</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="../assets/images/logo.jpg" alt="Essência Financeira logo">
+                    <p>Transformando vidas através da educação financeira.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="planos.html">Planos</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                        <li><a href="depoimentos.html">Depoimentos</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h3>Siga-nos</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Essência Financeira. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+    <script>
+        // Script específico para a página de contato
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    // Simulação de envio do formulário
+                    const submitButton = contactForm.querySelector('button[type="submit"]');
+                    const originalText = submitButton.textContent;
+                    
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Enviando...';
+                    
+                    setTimeout(function() {
+                        // Simulação de resposta do servidor
+                        alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                        
+                        // Resetar formulário
+                        contactForm.reset();
+                        
+                        // Restaurar botão
+                        submitButton.disabled = false;
+                        submitButton.textContent = originalText;
+                    }, 1500);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

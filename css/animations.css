@@ -1,0 +1,180 @@
+/* Animações e microinterações para o site Essência Financeira - Versão atualizada */
+/* Autor: Manus AI */
+/* Data: 30/05/2025 */
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Animação para botões */
+.btn {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+  transition: all 0.6s ease;
+}
+
+.btn:hover:before {
+  left: 100%;
+}
+
+/* Animação para cards */
+.service-card {
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Animação para ícones */
+.service-icon i {
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon i {
+  transform: scale(1.2);
+  color: var(--dourado);
+}
+
+/* Animação para links do menu */
+.nav-menu a {
+  position: relative;
+}
+
+.nav-menu a:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--dourado);
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover:after {
+  width: 100%;
+}
+
+/* Animação para inputs de formulário */
+input, textarea, select {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--verde-header);
+  box-shadow: 0 0 0 2px rgba(46, 94, 71, 0.2);
+}
+
+/* Validação de formulário */
+input.valid, textarea.valid, select.valid {
+  border-color: #4CAF50;
+}
+
+input.invalid, textarea.invalid, select.invalid {
+  border-color: #F44336;
+}
+
+.error-message {
+  color: #F44336;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+/* Header com sombra ao rolar */
+header {
+  transition: box-shadow 0.3s ease;
+}
+
+header.scrolled {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Animação para métricas */
+.metric-value {
+  transition: color 0.3s ease;
+}
+
+.metric-item:hover .metric-value {
+  color: var(--dourado);
+}
+
+/* Animação para social icons */
+.social-icons a {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: translateY(-3px);
+}
+
+/* Animação para o formulário de dicas */
+.tips-result {
+  transition: all 0.5s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.tips-result.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animação para lista de dicas */
+.tips-list li {
+  opacity: 0;
+  transform: translateX(-10px);
+  animation: fadeInLeft 0.5s ease forwards;
+}
+
+@keyframes fadeInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.tips-list li:nth-child(1) { animation-delay: 0.1s; }
+.tips-list li:nth-child(2) { animation-delay: 0.2s; }
+.tips-list li:nth-child(3) { animation-delay: 0.3s; }
+.tips-list li:nth-child(4) { animation-delay: 0.4s; }
+.tips-list li:nth-child(5) { animation-delay: 0.5s; }
+.tips-list li:nth-child(6) { animation-delay: 0.6s; }
+.tips-list li:nth-child(7) { animation-delay: 0.7s; }
+.tips-list li:nth-child(8) { animation-delay: 0.8s; }
+.tips-list li:nth-child(9) { animation-delay: 0.9s; }
+.tips-list li:nth-child(10) { animation-delay: 1s; }
+
+/* Animação para página carregada */
+body {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+body.loaded {
+  opacity: 1;
+}

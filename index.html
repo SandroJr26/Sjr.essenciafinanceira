@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Essência Financeira - Consultoria financeira personalizada para sua liberdade financeira">
+    <title>Essência Financeira - Consultoria Financeira</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/logo.jpg" type="image/jpg">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-sticky">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.jpg" alt="Essência Financeira logo">
+                </a>
+            </div>
+            
+            <button class="hamburger" aria-label="Menu de navegação">☰</button>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="pages/planos.html">Planos</a></li>
+                    <li><a href="pages/sobre.html">Sobre Nós</a></li>
+                    <li><a href="pages/contato.html">Contato</a></li>
+                    <li><a href="pages/depoimentos.html">Depoimentos</a></li>
+                    <li><a href="pages/blog.html">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hidden">Transforme sua vida financeira</h1>
+                <p class="hidden">Consultoria financeira personalizada para ajudar você a conquistar seus objetivos e alcançar a liberdade financeira.</p>
+                <a href="pages/contato.html" class="btn btn-primary hidden">Agendar Consulta Gratuita</a>
+            </div>
+            <div class="hero-image hidden">
+                <img src="assets/images/hero/consultoria-financeira.jpeg" alt="Consultoria financeira personalizada">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Formulário de Dicas Financeiras -->
+    <section>
+        <div class="container">
+            <h2 class="section-title hidden">Receba Dicas Financeiras Personalizadas</h2>
+            
+            <div class="form-container hidden">
+                <form id="tipsForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nome completo</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="income">Renda mensal</label>
+                            <input type="number" id="income" name="income" min="0" step="100" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="debt">Total de dívidas</label>
+                        <input type="number" id="debt" name="debt" min="0" step="100" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Receber Dicas Personalizadas</button>
+                </form>
+                
+                <div id="tipsResult" class="tips-result">
+                    <h3>Suas Dicas Financeiras Personalizadas</h3>
+                    <ul class="tips-list" id="tipsList"></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title hidden">Nossos Serviços</h2>
+            
+            <div class="services-grid">
+                <div class="service-card hidden">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3 class="service-title">Planejamento Financeiro</h3>
+                    <p>Desenvolvemos um plano financeiro personalizado para ajudar você a alcançar seus objetivos de curto, médio e longo prazo.</p>
+                </div>
+                
+                <div class="service-card hidden">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="service-title">Gestão de Dívidas</h3>
+                    <p>Estratégias eficientes para quitar suas dívidas mais rapidamente e recuperar sua saúde financeira.</p>
+                </div>
+                
+                <div class="service-card hidden">
+                    <div class="service-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <h3 class="service-title">Educação Financeira</h3>
+                    <p>Aprenda a gerenciar seu dinheiro de forma inteligente e desenvolva hábitos financeiros saudáveis.</p>
+                </div>
+            </div>
+            
+            <div class="investment-disclaimer hidden">
+                <strong>Aviso importante:</strong> Informações sobre investimentos são fornecidas apenas por profissionais certificados CPA-10. Este conteúdo não constitui recomendação de investimento. Consulte sempre um profissional certificado antes de tomar decisões financeiras.
+            </div>
+        </div>
+    </section>
+    
+    <!-- Metrics Section -->
+    <section>
+        <div class="container">
+            <h2 class="section-title hidden">Nossos Resultados</h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-item hidden">
+                    <div class="metric-value" data-target="1500">0</div>
+                    <div class="metric-label">Clientes Satisfeitos</div>
+                </div>
+                
+                <div class="metric-item hidden">
+                    <div class="metric-value" data-target="95">0</div>
+                    <div class="metric-label">Taxa de Sucesso (%)</div>
+                </div>
+                
+                <div class="metric-item hidden">
+                    <div class="metric-value" data-target="12">0</div>
+                    <div class="metric-label">Prêmios Recebidos</div>
+                </div>
+                
+                <div class="metric-item hidden">
+                    <div class="metric-value" data-target="4.9">0</div>
+                    <div class="metric-label">Avaliação Média (0-5)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="hidden">Pronto para transformar sua vida financeira?</h2>
+            <p class="hidden">Agende uma consulta gratuita e descubra como podemos ajudar você a alcançar seus objetivos financeiros.</p>
+            <a href="pages/contato.html" class="btn btn-primary hidden">Agendar Consulta Gratuita</a>
+        </div>
+    </section>
+    
+    <!-- Footer - Novo estilo com fundo preto e layout 1fr 1fr 1fr -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="assets/images/logo.jpg" alt="Essência Financeira logo">
+                    <p>Transformando vidas através da educação financeira.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="pages/planos.html">Planos</a></li>
+                        <li><a href="pages/sobre.html">Sobre Nós</a></li>
+                        <li><a href="pages/contato.html">Contato</a></li>
+                        <li><a href="pages/depoimentos.html">Depoimentos</a></li>
+                        <li><a href="pages/blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000, São Paulo - SP</p>
+                    <p><i class="fas fa-phone"></i> (11) 9999-9999</p>
+                    <p><i class="fas fa-envelope"></i> contato@essenciafinanceira.com.br</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Essência Financeira. Todos os direitos reservados.</p>
+                <p>Informações sobre investimentos são fornecidas apenas por profissionais certificados CPA-10.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
